@@ -17,14 +17,14 @@ def connect_db(db_name):
     con = MongoClient(MONGO_HOST,MONGO_PORT)
     db= con[MONGO_DB]
     db.authenticate(MONGO_USER,MONGO_PASS);
-    print("connect_db =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--==--=-=-=-=-=-=-=-=-=-=-=-=-=-")
+
     return db
 class CrawlerPipeline(object):
     def __init__(self):
-        self.collection = connect_db("genkData")["genkData"]
-        print("testststststt" , self.collection.database_names);
+        # self.collection = connect_db("genkData")["genkData"]
+        print("testststststt");
 
     def process_item(self, item, spider):
-        self.collection.insert_one(item);
-        return item
+        # self.collection.insert_one(item);
+        print("connect_db =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--==--=-=-=-=-=-=-=-=-=-=-=-=-=-")
 
